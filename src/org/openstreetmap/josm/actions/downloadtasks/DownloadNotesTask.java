@@ -47,7 +47,7 @@ public class DownloadNotesTask extends AbstractDownloadTask<NoteData> {
     /** Property defining number of days a bug needs to be closed to no longer be downloaded */
     public static final IntegerProperty DAYS_CLOSED = new IntegerProperty("osm.notes.daysClosed", 7);
 
-    private static final String PATTERN_COMPRESS = "https?://.*/(.*\\.osn.(gz|xz|bz2?|zip))";
+    private static final String PATTERN_COMPRESS = "https?://[^/]*/(.*\\.osn.(gz|xz|bz2?|zip))";
     private static final String NO_NOTES_FOUND = tr("No notes found in this area.");
     static {
         PostDownloadHandler.addNoDataErrorMessage(NO_NOTES_FOUND);
