@@ -93,7 +93,7 @@ class DropImage implements IAnimObject {
                     Enumeration<JarEntry> entries = jar.entries();
                     while (entries.hasMoreElements()) {
                         String fileName = entries.nextElement().getName();
-                        if (fileName.startsWith(path) && !fileName.endsWith("/") && !fileName.endsWith(".") && !fileName.includes("/../")) {
+                        if (fileName.startsWith(path) && !fileName.endsWith("/") && !fileName.endsWith(".") && !fileName.contains("/../")) {
                             result.add(fileName.substring(7));
                         }
                     }
