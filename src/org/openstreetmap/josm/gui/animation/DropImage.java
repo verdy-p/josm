@@ -44,14 +44,14 @@ class DropImage implements IAnimObject {
     }
 
     @Override
-    public void paint(Graphics g) {
-        g.drawImage(image, edge.x, edge.y, null);
-    }
-
-    @Override
     public void setExtend(int w, int h) {
         this.w = w;
         this.h = h;
+    }
+
+    @Override
+    public void paint(Graphics g) {
+        g.drawImage(image, edge.x, edge.y, null);
     }
 
     @Override
@@ -93,7 +93,7 @@ class DropImage implements IAnimObject {
                     Enumeration<JarEntry> entries = jar.entries();
                     while (entries.hasMoreElements()) {
                         String fileName = entries.nextElement().getName();
-                        if (fileName.startsWith(path) && !fileName.endsWith("/")) {
+                        if (fileName.startsWith(path) && !fileName.endsWith("/") && !fileName.endsWith(".") && !fileName.includes("/../")) {
                             result.add(fileName.substring(7));
                         }
                     }
